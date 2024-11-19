@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS_AJAX</title>
+  </head>
+  <body>
+    <div>
+      AJAX is a developer's dream, because you can:
+      <ul>
+        <li>Read data from a web server - after the page has loaded</li>
+        <li>Update a web page without reloading the page</li>
+        <li>Send data to a web server -in the background</li>
+      </ul>
+      <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+      </div>
+
+      <script>
+        function loadDoc() {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function () {
+            document.getElementById("demo").innerHTML = this.responseText;
+          };
+          xhttp.open("GET", "ajax_info.txt");
+          xhttp.send();
+        }
+      </script>
+    </div>
+    <pre>
+        The keystone of AJAX is the XMLHttpRequest object.
+
+Create an XMLHttpRequest object
+Define a callback function
+Open the XMLHttpRequest object
+Send a Request to a server
+    </pre>
+    <div>The XMLHttpRequest object is used to request data from a server.</div>
+    <div>
+      GET or POST? GET is simpler and faster than POST, and can be used in most
+      cases. However, always use POST requests when: A cached file is not an
+      option (update a file or database on the server). Sending a large amount
+      of data to the server (POST has no size limitations). Sending user input
+      (which can contain unknown characters), POST is more robust and secure
+      than GET.
+    </div>
+    <div id="AJAX-Server Responses">
+      <table>
+        <thead>
+          <tr>
+            <td>Property</td>
+            <td>Description</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>responseText</td>
+            <td>get the response data as a string</td>
+          </tr>
+          <tr>
+            <td>responseXML</td>
+            <td>get the response data as XML data</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        The getAllResponseHeaders() method returns all header information from the server response.
+
+
+      </p>
+      <p>
+        The getResponseHeader() method returns specific header information from the server response.
+
+
+      </p>
+    </div>
+    <div>
+        <p>
+            AJAX- Database
+        </p>
+        <pre>
+            The showCustomer() function does the following:
+
+            Check if a customer is selected
+            Create an XMLHttpRequest object
+            Create the function to be executed when the server response is ready
+            Send the request off to a file on the server
+            Notice that a parameter (q) is added to the URL (with the content of the dropdown list)
+            
+
+        </pre>
+    </div>
+  </body>
+</html>
